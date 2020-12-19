@@ -38,8 +38,8 @@ final class CheckConflictsOperation: QueuedOperation {
     
     private func handleSearch(_ results: [Event]) {
         var queue = Heap { (left: Event, right: Event) -> Bool in
-            guard let first = left.start else { return false }
-            guard let second = right.start else { return false }
+            guard let first = left.end else { return false }
+            guard let second = right.end else { return false }
             return first < second
         }
         
